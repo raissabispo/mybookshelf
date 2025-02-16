@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/cadastrar-livro.css">
+    <title>Cadastrar Livros</title>
+</head>
+<body>
+    <div class="cadastro">
+        <form class="form-livro">
+            <label for="nome">Nome: </label>
+            <input type="text" name="nome" id="nome">
+
+            <label for="autor">Autor: </label>
+            <input type="text" name="autor" id="autor">
+
+            <label for="genero">Gênero: </label>
+            <input type="text" name="genero" id="genero">
+
+            <label for="descricao">Descrição</label>
+            <input type="text" name="descricao" id="descricao">
+
+            <label for="foto">Tire uma foto:</label>
+        <input type="file" id="foto" name="foto" accept="image/*" capture="environment">
+        <br><br>
+        <button type="submit">Enviar Foto</button>
+        <br>
+        
+ <div class="rating-box">
+    <div class="stars">
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+    </div>
+  </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
