@@ -116,6 +116,26 @@ body{
     color: #222;
 }
 
+.rating-box .stars{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 15px;
+    justify-content: center;
+  }
+  
+  .stars i{
+  
+    color: #ff9c16;
+    font-size: 25px;
+    cursor: pointer;
+    transition: color 0.2s ease
+  }
+  /* .stars i.active{
+      color: #ff9c1a;
+  
+  } */
+
 .carousel-item img {
     max-width: 150px; 
     height: auto;    
@@ -152,7 +172,7 @@ body{
 .menu a{
     color: #000;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 20px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -162,7 +182,7 @@ body{
 }
 
 .menu i{
-    font-size: 20px;
+    font-size: 30px;
 }
 
 footer{
@@ -215,11 +235,8 @@ footer{
     .subtitulo-livro{
         font-size: 14px
     }
-    .menu a{
-        font-size:18px;
-    }
 
     .menu i{
-        font-size: 18px
+        font-size: 22px
     }
 }

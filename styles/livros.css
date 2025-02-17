@@ -4,3 +4,186 @@
     box-sizing: border-box;
     font-family: "poppins", sans-serif;
 }
+
+
+body{
+    background-color:  #ffe0e0;
+    margin-bottom: 60px;
+}
+
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f8f8;
+    padding:15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0, 0.1);
+}
+  
+.logo{
+    border-radius: 50%;
+    width: 6%;
+    height: auto;
+}
+
+.pesquisar{
+    width: 250px;
+    padding: 8px 12px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+
+}
+
+.pesquisar:focus{
+    border-color: #ffe0e0;
+    outline: none;
+}
+
+.pesquisar-icone{
+    background-color: #ffe0e0;
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 18px;
+    transition: 0.3s;
+    width: 50px;
+}
+
+.pesquisa-icone i{
+    font-size: 16px;
+}
+
+.pesquisar-icone:hover{
+    background-color: #ffc1c1 ;
+}
+
+.livros{
+    display: flex;
+    gap: 25px;
+    flex-direction:row;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color:#fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.titulo-livro{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color: #222;
+}
+
+
+
+.rating-box .stars{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 15px;
+    justify-content: center;
+  }
+  
+  .stars i{
+  
+    color: #ff9c16;
+    font-size: 25px;
+    cursor: pointer;
+    transition: color 0.2s ease
+  }
+  /* .stars i.active{
+      color: #ff9c1a;
+  
+  } */
+.livros img {
+    max-width: 150px; 
+    height: auto;    
+    display: block;   
+    margin: 0 auto; 
+    border-radius: 10px; 
+  }
+
+  .icons{
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+  }
+
+.fa-pen, .fa-trash{
+    margin: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+.menu{
+    position: fixed;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000
+  }
+  
+  .menu a{
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background 0.3 ease;
+  }
+  
+  .menu i{
+    font-size: 30px;
+  }
+
+
+
+
+
+  @media(max-width: 768px){
+    .header{
+        gap: 10px;
+       }
+    
+       .logo{
+        display: none;
+       }
+        .pesquisar{
+            width: 100%;
+        }
+        .pesquisar-icone{
+            width: 50px;
+        }
+    
+       .descricao{
+        font-size: 13px;
+       }
+    .menu i{
+        font-size: 22px
+      }
+  }

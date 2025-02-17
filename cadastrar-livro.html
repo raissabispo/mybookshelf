@@ -10,26 +10,26 @@
 <body>
     <div class="cadastro">
         <form class="form-livro">
+            <h1 class="titulo-form">Cadastre um novo livro:</h1>
             <label for="nome">Nome: </label>
-            <input type="text" name="nome" id="nome">
-
+            <input type="text" name="nome" id="nome" placeholder="Digite o título do livro">
+              <br>
             <label for="autor">Autor: </label>
-            <input type="text" name="autor" id="autor">
-
+            <input type="text" name="autor" id="autor" placeholder="Digite o autor do livro">
+             <br> 
             <label for="genero">Gênero: </label>
-            <input type="text" name="genero" id="genero">
-
+            <input type="text" name="genero" id="genero" placeholder="Digite o gênero do livro">
+              <br>
             <label for="descricao">Descrição</label>
-            <input type="text" name="descricao" id="descricao">
+            <input type="text" name="descricao" id="descricao" placeholder="Fale um pouco sobre o livro">
+            <br>
+            <label for="foto">Tire uma foto do livro:</label>
+            <i class="fa-solid fa-camera"></i>
+            <input type="file" accept="image/*" capture="camera" id="foto-livro">
 
-            <label for="foto">Tire uma foto:</label>
-        <input type="file" id="foto" name="foto" accept="image/*" capture="environment">
-        <br><br>
-        <button type="submit">Enviar Foto</button>
-        <br>
-        
+      
  <div class="rating-box">
-    <div class="stars">
+    <div class="stars" id="stars">
       <i class="fa-solid fa-star"></i>
       <i class="fa-solid fa-star"></i>
       <i class="fa-solid fa-star"></i>
@@ -37,8 +37,17 @@
       <i class="fa-solid fa-star"></i>
     </div>
   </div>
+  <br>
+          <button class="botao-cadastrar" type="submit">Cadastrar Livro</button>
+
         </form>
     </div>
+    <nav class="menu">
+        <a href="index.html"><i class="fa-solid fa-house"></i></a>
+        <a href="cadastrar-livro.html"><i class="fa-solid fa-plus"></i></a>
+        <a href="livros.html"><i class="fa-solid fa-book"></i></a>
+
+    </nav>
     <script src="script.js"></script>
 </body>
 </html>

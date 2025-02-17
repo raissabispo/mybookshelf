@@ -7,13 +7,50 @@
 }
 
 
+body{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  background-color:  #ffe0e0;
+}
+
+.cadastro{
+  margin: 230px;
+  background-color: #fff;
+  padding: 60px;
+  border-radius: 10%
+}
+.cadastro .titulo-form{
+  margin-bottom: 15px;
+}
+.cadastro .form-livro{
+  font-size: 20px;
+   
+}
+
+.cadastro .form-livro input{
+     width: 250px;
+    padding: 8px 12px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+
+}
+
+
 .rating-box .stars{
   display: flex;
   align-items: center;
-  gap: 25px
+  gap: 25px;
+  margin-bottom: 15px;
+  justify-content: center;
 }
 
 .stars i{
+
   color: #e6e6e6;
   font-size: 35px;
   cursor: pointer;
@@ -24,6 +61,92 @@
 
 }
 
+.botao-cadastrar{
+  font-size: 18px;
+  background-color:  #facccc;
+  padding: 10px;
+  border-radius: 5%;
+  transition: all 0.3s ease; 
+  margin-bottom:25px;
+  border:none;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000
+}
+
+.botao-cadastrar:hover{
+  background-color: #ff9393;
+  
+}
+
+.menu{
+  position: fixed;
+  bottom: 0;
+  left:0;
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000
+}
+
+.menu a{
+  color: #000;
+  text-decoration: none;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background 0.3 ease;
+}
+
+.menu i{
+  font-size: 30px;
+}
+@media(max-width: 768px){
+  .cadastro{
+    margin: 30px;
+    background-color: #fff;
+    padding: 50px 40px;
+  }
+  .cadastro .titulo-form{
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+  .cadastro .form-livro{
+    font-size: 14px;
+  
+  }
+  
+  .cadastro .form-livro input{
+      width: 230px;
+      padding: 8px 10px;
+      border: 2px solid #ccc;
+      border-radius: 20px;
+      font-size: 13px;
+  
+  }
+
+  .stars i{
+    font-size: 28px;
+  }
+
+  .botao-cadastrar{
+    font-size: 15px;
+
+  }
+.botao-cadastrar:hover{
+  background-color: #ff9393;
+}
+
+.menu i{
+  font-size: 22px
+}
+}
 
 
 
