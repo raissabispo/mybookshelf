@@ -132,39 +132,56 @@ body{
     cursor: pointer;
     font-size: 24px;
 }
-.menu{
+.menu {
     position: fixed;
+    left: 0;
     bottom: 0;
-    left:0;
-    width: 100%;
-    background-color: #f8f8f8;
-    padding: 10px 0;
+    width: 80px; 
+    height: 100vh; 
+    background:#f8f8f8;
+    border-radius: 5px;
+    padding: 20px 10px;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
-    z-index: 1000
+    gap: 15px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  .menu a{
+  .menu a {
     color: #000;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 15px;
+    gap: 15px;
+    width: 100%;
+    padding: 12px 15px;
     border-radius: 8px;
-    transition: background 0.3 ease;
+    transition: background 0.3s ease;
   }
   
-  .menu i{
-    font-size: 30px;
+  .menu a:hover {
+    background: #ddd;
   }
-
-
-
-
-
+  
+  .menu i {
+    font-size: 24px;
+  }
+  
+  .logo-menu{
+    width: 70px;
+    border-radius: 50%;
+  }
+  
+  footer{
+    margin-bottom: 0;
+     width: 100%;
+     padding: 20px 0;
+     background-color: #fff;
+     text-align: center;
+ }
+ 
   @media(max-width: 768px){
     .header{
         gap: 10px;
@@ -183,7 +200,40 @@ body{
        .descricao{
         font-size: 13px;
        }
-    .menu i{
-        font-size: 22px
+       .menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: #f8f8f8;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px 0;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
       }
-  }
+      
+      .menu a {
+        font-size: 16px;
+        padding: 10px;
+        flex-grow: 1;
+        text-align: center;
+        justify-content: center;
+      }
+      
+      .menu i {
+        font-size: 22px;
+      }
+      
+      .logo-menu {
+        display: none;
+      }
+      
+      body {
+        padding-bottom: 70px;
+        margin-bottom:0;
+      }
+      }
