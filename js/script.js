@@ -1,12 +1,35 @@
 
-// estrelas
+function enviar(event) {
+  event.preventDefault(); 
 
-const stars = document.querySelectorAll(".stars i")
-stars.forEach((star, index1) =>{
-  star.addEventListener("click",()=>{
-  
-    stars.forEach((star, index2) =>{
-        index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
-    });
+  let nome = document.getElementById('nome').value;
+  let autor = document.getElementById('autor').value;
+  let descricao = document.getElementById('descricao').value;
+  let foto = document.getElementById('foto-livro').value;
+  let estrelas = document.querySelectorAll('.stars .fa-star.active').length;
+
+  if (nome === '' || autor === '' || descricao === '' || foto === '') {
+      alert('Por favor, preencha todos os campos obrigatórios!');
+      return false;
+  } else {
+      alert(`Livro Cadastrado com sucesso!\n
+             Nome: ${nome}\n
+             Autor: ${autor}\n
+             Descrição: ${descricao}\n
+             Foto: ${foto}\n
+             Avaliação: ${estrelas} estrelas`);
+  }
+}
+
+const stars = document.querySelectorAll(".stars .fa-star");
+stars.forEach((star, index1) => {
+  star.addEventListener("click", () => {
+      stars.forEach((star, index2) => {
+          if (index1 >= index2) {
+              star.classList.add("active");
+          } else {
+              star.classList.remove("active");
+          }
+      });
   });
 });
