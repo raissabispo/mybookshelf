@@ -1,0 +1,28 @@
+
+[
+  {
+    "titulo": "Harry Potter e a pedra filosofal",
+    "autor": "J.K. Rowling",
+    "capa": "./img/harrypotter1.png",
+    "descricao": "Em seu décimo primeiro aniversário, Harry Potter descobre que é um bruxo e é convidado para estudar em Hogwarts, a escola de magia e bruxaria. Lá, ele faz amigos leais, aprende sobre o mundo mágico e enfrenta desafios perigosos, incluindo o malvado Lord Voldemort, que assassinou seus pais."
+  },
+  {
+    "titulo": "As Crônicas de Nárnia",
+    "autor": "C.S. Lewis",
+    "capa": "./img/ascronicasdenarnia.png",
+    "descricao": "Durante a Segunda Guerra Mundial, quatro irmãos são evacuados para o interior da Inglaterra, onde encontram um guarda-roupa mágico que os transporta para Nárnia, um mundo encantado governado pela Feiticeira Branca. Lá, eles se unem ao leão Aslam para lutar contra o mal e restaurar a paz."
+  },
+  {
+    "titulo": "Meus dias na livraria Morisaki",
+    "autor": "Satoshi Yagisawa",
+    "capa": "./img/meusdiasnalivrariamorisaki.png",
+    "descricao": "Após ser abandonada pelo noivo, Takako é convidada por seu tio para morar na livraria de segunda mão Morisaki, em Tóquio. Lá, ela encontra conforto nos livros e nas pessoas ao seu redor, enquanto aprende a lidar com suas mágoas e redescobre o prazer de ler."
+  },
+  {
+    "titulo": "Amor de redenção",
+    "autor": "Francine Rivers",
+    "capa": "./img/amorderedencao.png",
+    "descricao": "Angel é uma jovem que cresceu em meio à prostituição e ao abuso. Um dia, ela é vendida para Michael Hosea, um homem bondoso que a trata com amor e respeito. Através desse relacionamento, Angel começa a se curar de seus traumas e a encontrar a redenção."
+  }
+]
+

@@ -1,239 +1,246 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-
-body{
-    background-color:  #ffe0e0;
-    margin-bottom: 60px;
+body {
+  background-color: #ffe0e0;
+  margin-bottom: 60px;
 }
 
-.container{
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 10px 20px;
-    
-}
-.header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #f8f8f8;
-    padding:15px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0, 0.1);
-}
-  
-.logo{
-    border-radius: 50%;
-    width: 6%;
-    height: auto;
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
 }
 
-.pesquisar{
-    width: 250px;
-    padding: 8px 12px;
-    border: 2px solid #ccc;
-    border-radius: 20px;
-    font-size: 16px;
-    transition: all 0.3s ease;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8f8f8;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.logo {
+  border-radius: 50%;
+  width: 6%;
+  height: auto;
+}
+
+.pesquisar {
+  width: 250px;
+  padding: 8px 12px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.pesquisar:focus {
+  border-color: #ffe0e0;
+  outline: none;
+}
+
+.pesquisar-icone {
+  background-color: #ffe0e0;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 18px;
+  transition: 0.3s;
+  width: 50px;
+}
+
+.pesquisa-icone i {
+  font-size: 16px;
+}
+
+.pesquisar-icone:hover {
+  background-color: #ffc1c1;
+}
+
+.livros {
+  display: flex;
+  gap: 25px;
+  flex-direction:row;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color:#fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
 
 }
 
-.pesquisar:focus{
-    border-color: #ffe0e0;
-    outline: none;
+.livro {
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 60px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
 }
 
-.pesquisar-icone{
-    background-color: #ffe0e0;
-    color: #000;
-    border: none;
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-    margin-left: 10px;
-    font-size: 18px;
-    transition: 0.3s;
-    width: 50px;
+.livro h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0 5px;
+  color: #222;
 }
 
-.pesquisa-icone i{
-    font-size: 16px;
+.livro p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
 }
 
-.pesquisar-icone:hover{
-    background-color: #ffc1c1 ;
+.livro img {
+  max-width: 150px; 
+  height: auto;    
+  display: block;   
+  margin: 0 auto; 
+  border-radius: 10px; 
+
 }
 
-.livros{
-    display: flex;
-    gap: 25px;
-    flex-direction:row;
-    flex-wrap: wrap;
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color:#fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
+.rating-box .stars {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 15px;
+  justify-content: center;
 }
 
-.titulo-livro{
-    font-size: 20px;
-    font-weight: bold;
-    margin: 10px 0 5px;
-    color: #222;
+.stars i {
+  color: #ff9c16;
+  font-size: 25px;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
-
-
-.rating-box .stars{
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    margin-bottom: 15px;
-    justify-content: center;
-  }
-  
-  .stars i{
-  
-    color: #ff9c16;
-    font-size: 25px;
-    cursor: pointer;
-    transition: color 0.2s ease
-  }
-  /* .stars i.active{
-      color: #ff9c1a;
-  
-  } */
-.livros img {
-    max-width: 150px; 
-    height: auto;    
-    display: block;   
-    margin: 0 auto; 
-    border-radius: 10px; 
-  }
-
-  .icons{
-    display: flex;
-    gap: 18px;
-    align-items: center;
-    justify-content: center;
-  }
-
-.fa-pen, .fa-trash{
-    margin: 10px;
-    cursor: pointer;
-    font-size: 24px;
-}
 .menu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 80px; 
+  height: 100vh; 
+  background:#f8f8f8;
+  border-radius: 5px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu a {
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.menu a:hover {
+  background: #ddd;
+}
+
+.menu i {
+  font-size: 24px;
+}
+
+.logo-menu{
+  width: 70px;
+  border-radius: 50%;
+}
+@media (max-width: 768px) {
+  .header {
+      gap: 10px;
+  }
+
+  .logo {
+      display: none;
+  }
+
+  .pesquisar {
+      width: 100%;
+  }
+
+  .pesquisar-icone {
+      width: 50px;
+  }
+
+  .livro p {
+      font-size: 13px;
+  }
+
+  .menu {
     position: fixed;
-    left: 0;
     bottom: 0;
-    width: 80px; 
-    height: 100vh; 
-    background:#f8f8f8;
-    border-radius: 5px;
-    padding: 20px 10px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #f8f8f8;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 15px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
   }
   
   .menu a {
-    color: #000;
-    text-decoration: none;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    width: 100%;
-    padding: 12px 15px;
-    border-radius: 8px;
-    transition: background 0.3s ease;
-  }
-  
-  .menu a:hover {
-    background: #ddd;
+    font-size: 16px;
+    padding: 10px;
+    flex-grow: 1;
+    text-align: center;
+    justify-content: center;
   }
   
   .menu i {
-    font-size: 24px;
+    font-size: 22px;
   }
-  
-  .logo-menu{
-    width: 70px;
-    border-radius: 50%;
+
+  .logo-menu {
+      display: none;
   }
-  
-  footer{
-    margin-bottom: 0;
-     width: 100%;
-     padding: 20px 0;
-     background-color: #fff;
-     text-align: center;
- }
- 
-  @media(max-width: 768px){
-    .header{
-        gap: 10px;
-       }
-    
-       .logo{
-        display: none;
-       }
-        .pesquisar{
-            width: 100%;
-        }
-        .pesquisar-icone{
-            width: 50px;
-        }
-    
-       .descricao{
-        font-size: 13px;
-       }
-       .menu {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 60px;
-        background-color: #f8f8f8;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
-        padding: 10px 0;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-      }
-      
-      .menu a {
-        font-size: 16px;
-        padding: 10px;
-        flex-grow: 1;
-        text-align: center;
-        justify-content: center;
-      }
-      
-      .menu i {
-        font-size: 22px;
-      }
-      
-      .logo-menu {
-        display: none;
-      }
-      
-      body {
-        padding-bottom: 70px;
-        margin-bottom:0;
-      }
-      }
+
+  body {
+      padding-bottom: 70px;
+      margin-bottom: 0;
+  }
+
+  .livros {
+      flex-direction: column; 
+      align-items: center;
+  }
+
+  .livro {
+      flex: 1 1 100%;
+      max-width: 90%; 
+      margin-bottom: 20px;
+  }
+
+  .livro img {
+      max-width: 100px; 
+  }
+}
