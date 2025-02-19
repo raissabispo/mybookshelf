@@ -10,7 +10,7 @@ function pesquisarLivros() {
         `;
         return;
     }
-    fetch('/js/livros.json')
+    fetch('js/livros.json')
         .then(response => response.json())
         .then(data => {
             const resultados = data.filter(livro => 
