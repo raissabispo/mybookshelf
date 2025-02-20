@@ -1,4 +1,8 @@
-
+:root{
+  --cor-fundo: #ffe0e0;
+  --cor-texto: #fff;
+  --cor-input: #ccc;
+}
 * {
     margin: 0;
     padding: 0;
@@ -12,12 +16,12 @@ body{
   align-items: center;
   text-align: center;
   flex-direction: column;
-  background-color:  #ffe0e0;
+  background-color: var(--cor-fundo);
 }
 
 .cadastro{
   margin: 80px;
-  background-color: #fff;
+  background-color: var(--cor-texto);
   padding: 60px;
   border-radius: 10%
 }
@@ -25,12 +29,14 @@ body{
   margin-bottom: 15px;
 }
 .cadastro .form-livro{
-  flex-direction: column;
-  font-size: 20px;
-   
+   display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    align-items: center; 
 }
 
 .cadastro .form-livro input{
+
      width: 250px;
     padding: 8px 12px;
     border: 2px solid #ccc;

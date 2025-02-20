@@ -33,3 +33,17 @@ stars.forEach((star, index1) => {
       });
   });
 });
+
+
+ScrollReveal().reveal('.apresentacao', {
+    origin: 'left',
+    duration: 2000,
+    distance: '30%'
+});
+
+ScrollReveal().reveal('.livros-recentes', {
+    origin: 'left',
+    duration: 2000,
+    distance: '30%'
+});
+

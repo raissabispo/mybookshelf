@@ -1,3 +1,10 @@
+:root{
+    --cor-fundo: #ffe0e0;
+    --cor-texto: #fff;
+    --cor-input: #ccc;
+ 
+  }
+
 * {
     margin: 0;
     padding: 0;
@@ -5,11 +12,15 @@
   }
 
 body{
-    background-color:  #ffe0e0;
+  
+    background-color:  var(--cor-fundo);
     margin-bottom: 0;
+    animation-duration: 3s;
 }
 
+
 .container{
+   
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -32,8 +43,14 @@ body{
     height: auto;
 }
 
-.pesquisar{
-    width: 250px;
+.livros-input{
+   text-decoration: none;
+   display: flex;
+}
+
+
+.livros-input .pesquisar{
+    width: 600px;
     padding: 8px 12px;
     border: 2px solid #ccc;
     border-radius: 20px;
@@ -42,7 +59,7 @@ body{
 
 }
 
-.pesquisar:focus{
+.livros-input .pesquisar:focus{
     border-color: #ffe0e0;
     outline: none;
 }
@@ -60,7 +77,7 @@ body{
     width: 50px;
 }
 
-.pesquisaR-icone i{
+.pesquisar-icone i{
     font-size: 16px;
 }
 
@@ -115,6 +132,8 @@ body{
     margin: 10px 0 5px;
     color: #222;
 }
+
+
 
 .rating-box .stars{
     display: flex;
@@ -218,11 +237,11 @@ footer{
 .logo{
     width: 50px;
  }
-.pesquisar{
-        width: 100%;
+ .livros-input .pesquisar{
+        width: 32vh;
 }
-.pesquisar-icone{
-        display: none;
+.pesquisar-icone {
+   display:none;
 }
 
  .apresentacao{

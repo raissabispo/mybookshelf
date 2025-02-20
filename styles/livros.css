@@ -1,3 +1,11 @@
+
+:root{
+  --cor-fundo: #ffe0e0;
+  --cor-texto: #fff;
+  --cor-input: #ccc;
+
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +14,7 @@
 }
 
 body {
-  background-color: #ffe0e0;
+  background-color: var(--cor-fundo);
   margin-bottom: 60px;
 }
 
@@ -35,7 +43,7 @@ body {
 }
 
 .pesquisar {
-  width: 250px;
+  width: 600px;
   padding: 8px 12px;
   border: 2px solid #ccc;
   border-radius: 20px;
