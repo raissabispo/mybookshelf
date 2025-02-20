@@ -139,22 +139,21 @@ footer{
     font-size: 25px;
     margin-bottom: 15px;
   }
-  .cadastro .form-livro{
+  .cadastro .form-livro {
     display: flex;
     flex-direction: column;
     font-size: 14px;
+    align-items: center; 
+}
 
-  }
-  
-  .cadastro .form-livro input{
-      align-items: center;
-      width: 230px;
-      padding: 8px 10px;
-      border: 2px solid #ccc;
-      border-radius: 20px;
-      font-size: 13px;
-  
-  }
+.cadastro .form-livro input {
+    width: 230px;
+    padding: 8px 10px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
 
   .stars i{
     font-size: 28px;
