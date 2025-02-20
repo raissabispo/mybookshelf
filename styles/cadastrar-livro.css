@@ -140,8 +140,10 @@ footer{
     margin-bottom: 15px;
   }
   .cadastro .form-livro{
+    display: flex;
+    flex-direction: column;
     font-size: 14px;
-  
+
   }
   
   .cadastro .form-livro input{
