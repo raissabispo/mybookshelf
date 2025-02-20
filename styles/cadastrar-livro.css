@@ -147,6 +147,7 @@ footer{
   }
   
   .cadastro .form-livro input{
+      align-items: center;
       width: 230px;
       padding: 8px 10px;
       border: 2px solid #ccc;
