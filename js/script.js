@@ -1,3 +1,4 @@
+//json-server --watch js/livros.json --port 3000 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById('form-livro');
     const fileInput = document.getElementById('foto-livro');
