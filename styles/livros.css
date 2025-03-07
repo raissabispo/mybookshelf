@@ -200,6 +200,51 @@ body::before {
   width: 70px;
   border-radius: 50%;
 }
+
+/* Estiliza o formulário de edição */
+#form-editar-livro {
+ display: none;
+  background-color: var(--cor-texto);
+  opacity: 0.8; 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+#form-editar-livro input,
+#form-editar-livro textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#form-editar-livro button {
+  width: 100%;
+  background-color:  #facccc;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+ margin-bottom: 10px;
+}
+
+.botao-editar-editar, .botao-editar-excluir{
+  background-color:  #facccc;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
 @media (max-width: 768px) {
   .header {
       gap: 10px;
@@ -258,7 +303,7 @@ body::before {
       margin-bottom: 0;
   }
 
-  .livros {
+  .livros{
       flex-direction: column; 
       align-items: center;
   }

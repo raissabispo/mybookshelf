@@ -87,7 +87,7 @@ body::before {
 
 }
 
-.botao-cadastrar{
+.botao-cadastrar, .botao-editar-excluir{
   font-size: 18px;
   background-color:  #facccc;
   padding: 10px;
@@ -100,7 +100,7 @@ body::before {
   color: #000
 }
 
-.botao-cadastrar:hover{
+.botao-cadastrar:hover, .botao-editar-excluir:hover{
   background-color: #ff9393;
   
 }

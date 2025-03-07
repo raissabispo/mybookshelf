@@ -9,8 +9,9 @@
 </head>
 <body>
     <div class="cadastro">
-        <form class="form-livro" onsubmit="enviar(event)">
+        <form class="form-livro" id="form-livro" onsubmit="enviar(event)">
             <h1 class="titulo-form">Cadastre um novo livro:</h1>
+            <input type="hidden" id="book-id" value="123"> <!-- Valor atribuído ao campo -->
             <label for="nome">Nome: </label>
             <input type="text" name="nome" id="nome" placeholder="Digite o título do livro">
             
@@ -20,7 +21,7 @@
             <label for="descricao">Descrição: </label>
             <input type="text" name="descricao" id="descricao" placeholder="Fale um pouco sobre o livro">
             
-            <label for="foto-livro">Tire uma foto do livro:</label>
+            <label for="foto-livro" id="capa">Tire uma foto do livro:</label>
             <i class="fa-solid fa-camera"></i>
             <input type="file" accept="image/*" capture="camera" id="foto-livro">
 
