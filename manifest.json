@@ -1,0 +1,25 @@
+{
+  "name": "MyBookShelf",
+  "short_name": "MyBookShelf",
+  "id": "MyBookShelf",
+  "description": "My Book Shelf: Cadastre, visualize e gerencie seus livros.",
+  "theme_color": "#ffd2d2",
+  "background_color": "#ffe0e0",
+  "start_url": "index.html",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay"],
+  "categories": ["books", "lifestyle", "photo", "productivity"],
+  "icons": [
+    {
+      "src": "/icones/appstore.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icones/playstore.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
