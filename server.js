@@ -1,4 +1,7 @@
 const { exec } = require('child_process');
+const cors = require('cors');
+app.use(cors());
+
 
 exec('json-server --watch js/livros.json --port 3000 --host 0.0.0.0', (error, stdout, stderr) => {
   if (error) {

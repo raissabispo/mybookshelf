@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "**My Book Shelf** é um site para gerenciar sua coleção de livros de forma simples e prática! Cadastre, visualize, pesquise e organize seus livros com facilidade. Tire fotos das capas e acompanhe sua coleção!",
   "main": "service-worker.js",
- "scripts": {
-  "start": "json-server --watch js/livros.json --port 3000 --host 0.0.0.0",
-  "dev": "json-server --watch js/livros.json --port 3000 --host 0.0.0.0"
-},
+  "scripts": {
+    "start": "json-server --watch js/livros.json --port 3000 --host 0.0.0.0",
+    "dev": "json-server --watch js/livros.json --port 3000 --host 0.0.0.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "json-server": "^1.0.0-beta.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
   }
 }
