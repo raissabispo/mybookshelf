@@ -1,10 +1,6 @@
-//json-server --watch js/livros.json --port 3000 
-// json-server --watch js/livros.json --port 3000 --host 0.0.0.0
-
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById('form-livro');
     const fileInput = document.getElementById('foto-livro');
-    const apiUrl = "http://localhost:3000/livros"; 
 
     if (form) {
         form.addEventListener('submit', async (event) => {
@@ -23,32 +19,24 @@ document.addEventListener("DOMContentLoaded", function () {
             const file = fileInput.files[0];
             const fileName = `./img/${file.name}`;
 
-            try {
-                const response = await fetch(apiUrl);
-                const livros = await response.json();
+            const livros = JSON.parse(localStorage.getItem('livros')) || [];
 
-                const newId = livros.length > 0 ? Math.max(...livros.map(l => parseInt(l.id, 10))) + 1 : 1;
+            const newId = livros.length > 0 ? Math.max(...livros.map(l => parseInt(l.id, 10))) + 1 : 1;
 
-                const newBook = {
-                    id: newId,  
-                    nome,
-                    autor,
-                    descricao,
-                    capa: fileName, 
-                    avaliacao: estrelas
-                };
+            const newBook = {
+                id: newId,
+                nome,
+                autor,
+                descricao,
+                capa: fileName,
+                avaliacao: estrelas
+            };
 
-                await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(newBook)
-                });
+            livros.push(newBook);
+            localStorage.setItem('livros', JSON.stringify(livros));
 
-                alert("Livro cadastrado com sucesso!");
-                window.location.href = 'livros.html';
-            } catch (error) {
-                console.error('Erro ao adicionar livro:', error);
-            }
+            alert("Livro cadastrado com sucesso!");
+            window.location.href = 'livros.html';
         });
     }
 

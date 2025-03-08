@@ -1,4 +1,3 @@
-
 function pesquisarLivros() {
     const query = document.getElementById("pesquisar").value.toLowerCase();
     const mensagemErro = document.getElementById("mensagem-erro");
@@ -12,32 +11,32 @@ function pesquisarLivros() {
         return;
     }
 
-    fetch('http://localhost:3000/livros')
-        .then(response => response.json())
-        .then(data => {
-            const resultados = data.filter(livro =>
-                livro.nome.toLowerCase().includes(query)
-            );
+    fetch('js/livros.json')
+    .then(response => response.json())
+    .then(data => {
+        const resultados = data.livros.filter(livro =>
+            livro.nome.toLowerCase().includes(query)
+        );
 
-            if (resultados.length === 0) {
-                mensagemErro.innerHTML = `
-                    <div class="mensagem-erro">
-                        <p>Nenhum livro encontrado com esse título.</p>
-                    </div>
-                `;
-            } else {
-                mensagemErro.innerHTML = '';
-                exibirResultados(resultados);
-            }
-        })
-        .catch(error => {
-            console.error('Erro ao buscar livros:', error);
+        if (resultados.length === 0) {
             mensagemErro.innerHTML = `
                 <div class="mensagem-erro">
-                    <p>Ocorreu um erro ao buscar os livros. Tente novamente.</p>
+                    <p>Nenhum livro encontrado com esse título.</p>
                 </div>
             `;
-        });
+        } else {
+            mensagemErro.innerHTML = '';
+            exibirResultados(resultados);
+        }
+    })
+    .catch(error => {
+        console.error('Erro ao buscar livros:', error);
+        mensagemErro.innerHTML = `
+            <div class="mensagem-erro">
+                <p>Ocorreu um erro ao buscar os livros. Tente novamente.</p>
+            </div>
+        `;
+    });
 }
 
 function exibirResultados(resultados) {

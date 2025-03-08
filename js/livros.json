@@ -1,4 +1,4 @@
-{ 
+{
   "livros": [
     {
       "nome": "O diário de Anne Frank",
@@ -9,12 +9,12 @@
       "id": "1"
     },
     {
-      "id": "2",
       "nome": "Harry Potter e a Pedra Filosofal",
       "autor": "J.K Rowling ",
       "descricao": "Harry recebe uma carta convite para estudar na Escola de Magia e Bruxaria de Hogwarts  Harry conhece Rony Weasley e Hermione Granger, seus novos amigos  Harry e seus amigos descobrem que a pedra filosofal está guardada na escola  A trama gira em torno do desejo de Voldemort de conseguir a pedra para se tornar imortal ",
+      "avaliacao": 4,
       "capa": "./img/harrypotter1.jpg",
-      "avaliacao": 5
+      "id": "2"
     },
     {
       "id": "3",
@@ -41,7 +41,7 @@
       "avaliacao": 5
     },
     {
-      "id": 6,
+      "id": "6",
       "nome": "Teste ",
       "autor": "teste",
       "descricao": "teste",
