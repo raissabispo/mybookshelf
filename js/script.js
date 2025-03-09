@@ -1,4 +1,3 @@
-// json-server --watch js/livros.json --port 3000
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById('form-livro');
     const fileInput = document.getElementById('foto-livro');
@@ -17,30 +16,62 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
+           
             const file = fileInput.files[0];
             const fileName = `./img/${file.name}`;
 
-            const livros = JSON.parse(localStorage.getItem('livros')) || [];
+            try {
+             
+                const response = await fetch('js/livros.json');
+                if (!response.ok) {
+                    throw new Error('Erro ao carregar o arquivo de livros');
+                }
 
-            const newId = livros.length > 0 ? Math.max(...livros.map(l => parseInt(l.id, 10))) + 1 : 1;
+                const data = await response.json();
+                const livros = data.livros; 
+                if (!Array.isArray(livros)) {
+                    throw new Error('Formato inválido dos livros: Esperado um array');
+                }
 
-            const newBook = {
-                id: newId,
-                nome,
-                autor,
-                descricao,
-                capa: fileName,
-                avaliacao: estrelas
-            };
+                const newId = livros.length > 0 ? (Math.max(...livros.map(l => Number(l.id))) + 1).toString() : "1";
 
-            livros.push(newBook);
-            localStorage.setItem('livros', JSON.stringify(livros));
+            
+                const newBook = {
+                    id: newId, 
+                    nome,
+                    autor,
+                    descricao,
+                    capa: fileName,
+                    avaliacao: estrelas
+                };
 
-            alert("Livro cadastrado com sucesso!");
-            window.location.href = 'livros.html';
+            
+                livros.push(newBook);
+
+             
+                const saveResponse = await fetch('http://localhost:3000/livros', {
+                    method: 'POST', 
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(newBook), 
+                });
+
+                if (saveResponse.ok) {
+                    alert(`Livro cadastrado com sucesso! ID: ${newBook.id}`);
+                    window.location.href = 'livros.html'; 
+                } else {
+                    throw new Error('Erro ao salvar o livro no arquivo JSON');
+                }
+
+            } catch (error) {
+                console.error("Erro ao cadastrar o livro:", error);
+                alert("Ocorreu um erro ao cadastrar o livro. Tente novamente mais tarde.");
+            }
         });
     }
 
+  
     const stars = document.querySelectorAll(".stars .fa-star");
     stars.forEach((star, index1) => {
         star.addEventListener("click", () => {
