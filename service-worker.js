@@ -1,11 +1,11 @@
-const CACHE_NAME = 'mybookshelf-cache-v2'; 
+const CACHE_NAME = 'mybookshelf-cache-v2';
 const urlsToCache = [
   '/',
   '/index.html',
   '/styles/style.css',
   '/js/script.js',
   '/js/livros.js',
-  '/js/livros.json',  
+  'js/livros.json',
   '/manifest.json', 
 ];
 
@@ -14,8 +14,20 @@ self.addEventListener('install', event => {
   console.log('Service Worker instalado!');
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      console.log('Arquivos armazenados no cache:', urlsToCache);
-      return cache.addAll(urlsToCache);
+      return Promise.all(
+        urlsToCache.map(url =>
+          fetch(url)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`Erro ao buscar ${url}: ${response.statusText}`);
+              }
+              return cache.put(url, response);
+            })
+            .catch(error => {
+              console.error(`Falha ao adicionar ${url} ao cache:`, error);
+            })
+        )
+      );
     })
   );
 });
@@ -23,32 +35,38 @@ self.addEventListener('install', event => {
 // Ativação do Service Worker
 self.addEventListener('activate', event => {
   console.log('Service Worker ativado!');
-  event.waitUntil(  
+  event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
-        cacheNames.filter(cache => cache !== CACHE_NAME)
-          .map(cache => caches.delete(cache))  // Limpa caches antigos
+        cacheNames
+          .filter(cache => cache !== CACHE_NAME)
+          .map(cache => caches.delete(cache)) 
       );
     })
   );
 });
 
-// Fetch (requisição) para servir os arquivos a partir do cache
+// Interceptação de requisições (Fetch)
 self.addEventListener('fetch', event => {
-  event.respondWith(  
+  event.respondWith(
     caches.match(event.request).then(response => {
-      return response || fetch(event.request).then(networkResponse => {
-        // Clonando a resposta para atualizar o cache
-        const clonedResponse = networkResponse.clone();
+      return response || fetch(event.request)
+        .then(networkResponse => {
 
-        if (networkResponse && networkResponse.ok) {
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, clonedResponse);  // Atualiza o cache
-          });
-        }
+          const clonedResponse = networkResponse.clone();
 
-        return networkResponse; // Retorna a resposta da rede
-      });
+          if (networkResponse.ok) {
+            caches.open(CACHE_NAME).then(cache => {
+              cache.put(event.request, clonedResponse);
+            });
+          }
+
+          return networkResponse;
+        })
+        .catch(error => {
+          console.error('Falha na requisição para:', event.request.url, error);
+          return new Response('Falha na requisição', { status: 500 });
+        });
     })
   );
 });
