@@ -33,20 +33,12 @@
       "avaliacao": 4
     },
     {
-      "id": "5",
       "nome": "Amor de redenção",
       "autor": "Francine Rivers",
       "descricao": "O relacionamento de um jovem casal se choca com as duras realidades da Corrida do Ouro na Califórnia de 1850. Angel, experimentando o amor pela primeira vez e enfrentando demônios que parecem insuperáveis, foge da nova vida que ela acha que não merece. No entanto, durante a busca de Michael pela sua amada, Angel descobre que ela tem o poder de escolher a vida que quer.",
+      "avaliacao": 4,
       "capa": "./img/amorderedencao.jpg",
-      "avaliacao": 5
-    },
-    {
-      "id": "6",
-      "nome": "Teste ",
-      "autor": "teste",
-      "descricao": "teste",
-      "capa": "./img/acasadospesadelos.jpg",
-      "avaliacao": 1
+      "id": "5"
     }
   ]
 }
