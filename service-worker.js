@@ -5,7 +5,7 @@ const urlsToCache = [
   '/styles/style.css',
   '/js/script.js',
   '/js/livros.js',
-  'js/livros.json',  
+  '/js/livros.json',  
   '/manifest.json', 
 ];
 
@@ -38,7 +38,6 @@ self.addEventListener('fetch', event => {
   event.respondWith(  
     caches.match(event.request).then(response => {
       return response || fetch(event.request).then(networkResponse => {
-  
         // Clonando a resposta para atualizar o cache
         const clonedResponse = networkResponse.clone();
 
