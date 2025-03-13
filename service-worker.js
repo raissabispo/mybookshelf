@@ -6,7 +6,7 @@ const urlsToCache = [
   '/js/script.js',
   '/js/livros.js',
   'js/livros.json',
-  '/manifest.json', 
+  '/manifest.json',
 ];
 
 // Instalação do Service Worker
@@ -14,25 +14,15 @@ self.addEventListener('install', event => {
   console.log('Service Worker instalado!');
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      return Promise.all(
-        urlsToCache.map(url =>
-          fetch(url)
-            .then(response => {
-              if (!response.ok) {
-                throw new Error(`Erro ao buscar ${url}: ${response.statusText}`);
-              }
-              return cache.put(url, response);
-            })
-            .catch(error => {
-              console.error(`Falha ao adicionar ${url} ao cache:`, error);
-            })
-        )
-      );
+      console.log('Arquivos armazenados no cache:', urlsToCache);
+      return cache.addAll(urlsToCache).catch(err => {
+        console.error('Erro ao adicionar ao cache:', err);
+      });
     })
   );
 });
 
-// Ativação do Service Worker
+// Ativação do Service Worker (Remove caches antigos)
 self.addEventListener('activate', event => {
   console.log('Service Worker ativado!');
   event.waitUntil(
@@ -40,33 +30,32 @@ self.addEventListener('activate', event => {
       return Promise.all(
         cacheNames
           .filter(cache => cache !== CACHE_NAME)
-          .map(cache => caches.delete(cache)) 
+          .map(cache => caches.delete(cache))
       );
     })
   );
+  self.clients.claim(); 
 });
 
-// Interceptação de requisições (Fetch)
+// Fetch - Sempre busca a versão mais recente dos arquivos, exceto para métodos POST, PUT, DELETE
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request)
-        .then(networkResponse => {
-
-          const clonedResponse = networkResponse.clone();
-
-          if (networkResponse.ok) {
-            caches.open(CACHE_NAME).then(cache => {
-              cache.put(event.request, clonedResponse);
-            });
-          }
-
-          return networkResponse;
-        })
-        .catch(error => {
-          console.error('Falha na requisição para:', event.request.url, error);
-          return new Response('Falha na requisição', { status: 500 });
+  // Verifica se o método da requisição é POST, PUT ou DELETE
+  if (['POST', 'PUT', 'DELETE'].includes(event.request.method)) {
+    event.respondWith(fetch(event.request));
+  } else {
+  
+    event.respondWith(
+      caches.match(event.request).then(cachedResponse => {
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+        return fetch(event.request).then(networkResponse => {
+          return caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, networkResponse.clone()); 
+            return networkResponse;
+          });
         });
-    })
-  );
+      })
+    );
+  }
 });
