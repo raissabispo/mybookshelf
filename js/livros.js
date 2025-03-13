@@ -1,3 +1,4 @@
+
 function pesquisarLivros() {
     const query = document.getElementById("pesquisar").value.toLowerCase();
     const mensagemErro = document.getElementById("mensagem-erro");
@@ -11,32 +12,33 @@ function pesquisarLivros() {
         return;
     }
 
-    fetch('js/livros.json')
-    .then(response => response.json())
-    .then(data => {
-        const resultados = data.livros.filter(livro =>
-            livro.nome.toLowerCase().includes(query)
-        );
 
-        if (resultados.length === 0) {
+    fetch('https://my-book-shelf-api.onrender.com')
+        .then(response => response.json())
+        .then(data => {
+            const resultados = data.livros.filter(livro =>
+                livro.nome.toLowerCase().includes(query)
+            );
+
+            if (resultados.length === 0) {
+                mensagemErro.innerHTML = `
+                    <div class="mensagem-erro">
+                        <p>Nenhum livro encontrado com esse título!</p>
+                    </div>
+                `;
+            } else {
+                mensagemErro.innerHTML = '';
+                exibirResultados(resultados);
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao buscar livros:', error);
             mensagemErro.innerHTML = `
                 <div class="mensagem-erro">
-                    <p>Nenhum livro encontrado com esse título.</p>
+                    <p>Ocorreu um erro ao buscar os livros. Tente novamente.</p>
                 </div>
             `;
-        } else {
-            mensagemErro.innerHTML = '';
-            exibirResultados(resultados);
-        }
-    })
-    .catch(error => {
-        console.error('Erro ao buscar livros:', error);
-        mensagemErro.innerHTML = `
-            <div class="mensagem-erro">
-                <p>Ocorreu um erro ao buscar os livros. Tente novamente.</p>
-            </div>
-        `;
-    });
+        });
 }
 
 function exibirResultados(resultados) {
@@ -66,13 +68,12 @@ function exibirResultados(resultados) {
         });
     });
 }
-
 async function excluirLivro(id) {
     const confirmacao = confirm("Tem certeza que deseja excluir este livro?");
     if (!confirmacao) return;
 
     try {
-        const resposta = await fetch(`http://localhost:3000/livros/${id}`, {
+        const resposta = await fetch(`https://my-book-shelf-api.onrender.com/livros/${id}`, {
             method: 'DELETE'
         });
 
@@ -89,7 +90,7 @@ async function excluirLivro(id) {
 
 async function editarLivro(id) {
     try {
-        const resposta = await fetch(`http://localhost:3000/livros/${id}`);
+        const resposta = await fetch(`https://my-book-shelf-api.onrender.com/livros/${id}`);
         const livro = await resposta.json();
 
         const formEditar = document.getElementById("form-editar-livro");
@@ -122,7 +123,7 @@ async function salvarEdicao(id) {
     const imagemInput = document.getElementById("editar-imagem");
 
     try {
-        const resposta = await fetch(`http://localhost:3000/livros/${id}`);
+        const resposta = await fetch(`https://my-book-shelf-api.onrender.com/livros/${id}`);
         const livro = await resposta.json();
 
         const livroAtualizado = {
@@ -146,7 +147,7 @@ async function salvarEdicao(id) {
 
 async function salvarLivro(id, livroAtualizado) {
     try {
-        const resposta = await fetch(`http://localhost:3000/livros/${id}`, {
+        const resposta = await fetch(`https://my-book-shelf-api.onrender.com/livros/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -165,6 +166,7 @@ async function salvarLivro(id, livroAtualizado) {
         console.error("Erro ao salvar as alterações do livro:", error);
     }
 }
+
 function fecharFormulario() {
     document.getElementById("form-editar-livro").style.display = "none";
 }
